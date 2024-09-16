@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="A fully responsive webpage that adapts to various screen sizes with a focus on usability and accessibility.">
+  <title>Responsive Webpage</title>
+  <style>
+    /* Global Styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+    }
+
+    header {
+      background-color: #333;
+      color: white;
+      padding: 1rem;
+      text-align: center;
+    }
+
+    header h1 {
+      font-size: 2rem;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      background-color: #444;
+    }
+
+    nav a {
+      color: white;
+      padding: 1rem;
+      text-decoration: none;
+      text-align: center;
+      transition: background-color 0.3s ease;
+    }
+
+    nav a:hover {
+      background-color: #555;
+    }
+
+    /* Main Layout */
+    .container {
+      display: grid;
+      grid-template-columns: 1fr 3fr;
+      gap: 1rem;
+      padding: 1rem;
+    }
+
+    .sidebar {
+      background-color: #f4f4f4;
+      padding: 1rem;
+    }
+
+    .main-content {
+      background-color: #fff;
+      padding: 1rem;
+    }
+
+    .main-content h2 {
+      font-size: 1.5rem;
+    }
+
+    .main-content p {
+      margin-bottom: 1rem;
+    }
+
+    footer {
+      background-color: #333;
+      color: white;
+      padding: 1rem;
+      text-align: center;
+      margin-top: 1rem;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 1.8rem;
+      }
+
+      nav {
+        flex-direction: column;
+      }
+
+      .container {
+        grid-template-columns: 1fr;
+      }
+
+      .sidebar, .main-content {
+        padding: 1rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      header h1 {
+        font-size: 1.5rem;
+      }
+
+      .main-content h2 {
+        font-size: 1.2rem;
+      }
+    }
+
+    /* Accessibility */
+    a:focus {
+      outline: 2px solid #555;
+    }
+
+    a:focus-visible {
+      background-color: #555;
+    }
+
+    button:focus {
+      outline: 2px solid #000;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header Section -->
+  <header>
+    <h1>Welcome to Our Responsive Webpage</h1>
+  </header>
+
+  <!-- Navigation Section -->
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#services">Services</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <!-- Main Layout -->
+  <div class="container">
+    <!-- Sidebar Section -->
+    <aside class="sidebar">
+      <h2>Sidebar</h2>
+      <p>This is the sidebar content where you can add links or additional information.</p>
+    </aside>
+
+    <!-- Main Content Section -->
+    <section class="main-content">
+      <h2>Main Content</h2>
+      <p>This is the main content section. It includes essential information about the page, service, or business.</p>
+      <p>Our page is designed to adapt seamlessly to different screen sizes, ensuring a great user experience on mobile, tablet, and desktop devices.</p>
+    </section>
+  </div>
+
+  <!-- Footer Section -->
+  <footer>
+    <p>&copy; 2024 Responsive Web Design. All Rights Reserved.</p>
+  </footer>
+
+</body>
+</html>
