@@ -125,7 +125,11 @@
       bottom: 0;
       width: 100vw;
     }
-
+    @media(min-width: 768px) {
+      .hideonlaptop{
+        display: none;
+      }
+    }
     /* Responsive Design */
     @media (max-width: 768px) {
       .hideOnMobile{
@@ -183,7 +187,7 @@
       <li><a href="#" class="hideOnMobile">Services</a></li>
       <li><a href="#" class="hideOnMobile">About</a></li>
       <li><a href="#" class="hideOnMobile">Contact</a></li>
-      <li onclick="showSidebar()"><a href="#"><i class="fa-solid fa-bars"></i></a></li>
+      <li onclick="showSidebar()"><a href="#" class="hideonlaptop"><i class="fa-solid fa-bars"></i></a></li>
     </ul>
   </nav>
 
