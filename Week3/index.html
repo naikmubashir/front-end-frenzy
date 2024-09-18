@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="A fully responsive webpage that adapts to various screen sizes with a focus on usability and accessibility.">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <title>Responsive Webpage</title>
   <style>
     /* Global Styles */
@@ -14,22 +15,69 @@
     }
 
     body {
+      min-height: 100vh;
       font-family: Arial, sans-serif;
       line-height: 1.6;
-    }
 
-    header {
-      background-color: #333;
-      color: white;
-      padding: 1rem;
-      text-align: center;
-    }
-
-    header h1 {
-      font-size: 2rem;
+      background-image: url("cr7.jpg");
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
     }
 
     nav {
+      background-color: white;
+      box-shadow: 3px 3px 5px rgba(0,0,0,0.2);
+
+      
+    }
+    nav ul {
+      width: 100%;
+      list-style: none;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+    }
+    nav li {
+      height: 50px;
+    }
+    nav a {
+      height: 100%;
+      padding: 0 30px;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      color: black;
+    }
+    nav a:hover {
+      background-color: lightgray;
+    }
+    nav li:first-child{
+      margin-right: auto;
+    }
+
+    .sideBar {
+      position: fixed;
+      top: 0;
+      right: 0;
+      height: 100vh;
+      width: 300px;
+      z-index: 999;
+      background-color: rgb(255, 255, 255, 0.2);
+      backdrop-filter: blur(10px);
+      display: none;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: flex-start;
+    }
+    .sideBar li{
+      width: 100%;
+    }
+    .sideBar a{
+      width: 100%;
+    }
+
+    /* nav {
       display: flex;
       justify-content: center;
       background-color: #444;
@@ -45,68 +93,53 @@
 
     nav a:hover {
       background-color: #555;
-    }
+    } */
+    
 
     /* Main Layout */
-    .container {
+    /* .container {
       display: grid;
       grid-template-columns: 1fr 3fr;
       gap: 1rem;
       padding: 1rem;
-    }
+    } */
 
-    .sidebar {
+    /* .sidebar {
       background-color: #f4f4f4;
       padding: 1rem;
-    }
+    } */
 
     .main-content {
-      background-color: #fff;
+      display: grid;
+      color: white;
       padding: 1rem;
     }
-
-    .main-content h2 {
-      font-size: 1.5rem;
-    }
-
-    .main-content p {
-      margin-bottom: 1rem;
-    }
-
+   
     footer {
       background-color: #333;
       color: white;
       padding: 1rem;
       text-align: center;
       margin-top: 1rem;
+      position: fixed;
+      bottom: 0;
+      width: 100vw;
     }
-
+    @media(min-width: 768px) {
+      .hideonlaptop{
+        display: none;
+      }
+    }
     /* Responsive Design */
     @media (max-width: 768px) {
-      header h1 {
-        font-size: 1.8rem;
-      }
-
-      nav {
-        flex-direction: column;
-      }
-
-      .container {
-        grid-template-columns: 1fr;
-      }
-
-      .sidebar, .main-content {
-        padding: 1rem;
+      .hideOnMobile{
+        display: none;
       }
     }
 
     @media (max-width: 480px) {
-      header h1 {
-        font-size: 1.5rem;
-      }
-
-      .main-content h2 {
-        font-size: 1.2rem;
+      .hideOnMobile{
+        display: none;
       }
     }
 
@@ -127,25 +160,36 @@
 <body>
 
   <!-- Header Section -->
-  <header>
+  <!-- <header>
     <h1>Welcome to Our Responsive Webpage</h1>
-  </header>
+  </header> -->
 
   <!-- Navigation Section -->
-  <nav>
+  <!-- <nav>
     <a href="#home">Home</a>
     <a href="#about">About</a>
     <a href="#services">Services</a>
     <a href="#contact">Contact</a>
-  </nav>
+  </nav> -->
 
-  <!-- Main Layout -->
-  <div class="container">
-    <!-- Sidebar Section -->
-    <aside class="sidebar">
-      <h2>Sidebar</h2>
-      <p>This is the sidebar content where you can add links or additional information.</p>
-    </aside>
+  
+  <nav>
+    <ul class="sideBar">
+      <li onclick="hideSidebar()"><a href="#"><i class="fa-solid fa-xmark"></i></a></li>
+      <li><a href="#">Home</a></li>
+      <li><a href="#">Services</a></li>
+      <li><a href="#">About</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+    <ul>
+      <li><a href="#">Naik</a></li>
+      <li><a href="#" class="hideOnMobile">Home</a></li>
+      <li><a href="#" class="hideOnMobile">Services</a></li>
+      <li><a href="#" class="hideOnMobile">About</a></li>
+      <li><a href="#" class="hideOnMobile">Contact</a></li>
+      <li onclick="showSidebar()"><a href="#" class="hideonlaptop"><i class="fa-solid fa-bars"></i></a></li>
+    </ul>
+  </nav>
 
     <!-- Main Content Section -->
     <section class="main-content">
@@ -159,6 +203,15 @@
   <footer>
     <p>&copy; 2024 Responsive Web Design. All Rights Reserved.</p>
   </footer>
-
+  <script>
+    function showSidebar() {
+      const sideBar= document.querySelector('.sideBar');
+      sideBar.style.display = 'flex';
+    }
+    function hideSidebar() {
+      const sideBar= document.querySelector('.sideBar');
+      sideBar.style.display = 'none';
+    }
+  </script>
 </body>
 </html>
